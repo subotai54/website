@@ -1,0 +1,15 @@
+#page-header{
+background-color: green;
+display: inline-block;
+align: center;
+margin: auto;
+width: 100%;
+text-align: center;
+font-size:2em;
+padding: 1em;
+margin: 1em;
+}
+
+#page-header a:visited {
+  color: red;
+}
