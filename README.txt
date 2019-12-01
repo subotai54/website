@@ -1,5 +1,6 @@
 # vim: set ft=rst:
 
-See https://help.pythonanywhere.com/ (or click the "Help" link at the top
-right) for help on how to use PythonAnywhere, including tips on copying and
-pasting from consoles, and writing your own web applications.
+
+Hello!
+
+This is the code for my website that I am building using Django. It will eventually host projects that I build.
