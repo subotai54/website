@@ -2,7 +2,19 @@
 {% extends 'main/base.html' %}
 
 {% block whole %}
+{% load static %}
+<link rel="stylesheet" href="{% static "main/home.css" %}">
+<body>
+<div id="header">
+    <h1>Main Page</h1>
+</div>
+<div id="main_body">
+Hello!
+<br>
+My name is Sam and
+this is the main page for my website that I am building to help learn Django and Python. Projects will be added to the site as they are put into atleast a semi-functional state, and the code is hosted on
+<a href="https://github.com/subotai54/website">github</a>.
 
-Hi, this is my main page.
-
+</div>
+</body>
 {% endblock %}

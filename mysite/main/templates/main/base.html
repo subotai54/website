@@ -1,13 +1,15 @@
 
 <html>
     {% load static %}
-    <link rel="stylesheet" href="{% static "main/styles.css" %}">
+    <link rel="stylesheet" href="{% static "main/base.css" %}">
 
     <body>
         <div id="page-header">
-            <a href="/">Home</a>
-            <a href="/rank/">Ranking</a>
-            <a href="/about/">About</a>
+            <ul id="nav_bar">
+                <li><a href="/">Home</a></li>
+                <li><a href="/rank/">Ranking</a></li>
+                <li><a href="/about/">About</a></li>
+            </ul>
 
 
 

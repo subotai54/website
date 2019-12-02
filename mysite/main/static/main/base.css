@@ -1,0 +1,25 @@
+#page-header{
+display: inline-block;
+width: 100vw;
+text-align: center;
+font-size:2em;
+padding: 0;
+margin: auto;
+box-sizing=border-box;
+
+}
+
+
+#page-header a:visited {
+  color: red;
+}
+
+
+#page-header #nav_bar li {
+display: inline-block;
+list-style-type: none;
+padding: 0;
+text-align: center;
+box-sizing=border-box;
+margin:9px;
+}

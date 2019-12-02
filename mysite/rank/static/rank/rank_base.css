@@ -1,0 +1,10 @@
+.sidebar-nav{
+float:left;
+width:10%;
+height: 50vh;
+background-color:#d3d3d3;
+}
+
+.col-sm-10{
+margin-left:15%;
+}

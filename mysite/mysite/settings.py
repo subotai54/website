@@ -122,17 +122,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [
-
-"/home/subotai54/mysite/main/static/main",
-"/home/subotai54/mysite/rank/static/rank",
-"/home/subotai54/mysite/rank/",
-"/home/subotai54/mysite/rank/static/rank/",
-"/home/subotai54/mysite/rank/static/",
-"/home/subotai54/mysite/rank/static",
-"/rank/",
-"/rank/static/",
-"rank",
-
-]
