@@ -24,3 +24,9 @@ box-sizing=border-box;
 margin:9px;
 
 }
+
+.content-container{
+width: 65vw;
+margin: auto;
+
+}
