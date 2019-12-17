@@ -1,18 +1,23 @@
-
-<html>
+<!doctype html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <head>
     {% load static %}
-    <link rel="stylesheet" href="{% static "main/base.css" %}">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    {% block style %}<link rel="stylesheet" href="{% static "main/base.css" %}">{% endblock%}
+  {% block title %}<title>Subotai54</title>{% endblock %}
+  </head>
     <body>
-        <div id="page-header">
-            <ul id="nav_bar">
-                <li><a href="/">Subotai 54</a></li>
-                <li><a href="/rank/">Ranking</a></li>
-                <li><a href="/about/">About</a></li>
-                <li><a href="https://github.com/subotai54">Github</a></li>
-                <li>Projects</li>
-                <li><a href="/blog/">Blog</a></li>
-            </ul>
+        <div class="container">
+            <div class="row  mx-auto">
+                    <ul class="list-inline  mx-auto justify-content-center">
+                        <li class="list-inline-item"><a href="/">Subotai 54</a></li>
+                        <li class="list-inline-item"><a href="/rank/">Ranking</a></li>
+                        <li class="list-inline-item"><a href="/about/">About</a></li>
+                        <li class="list-inline-item"><a href="https://github.com/subotai54">Github</a></li>
+                        <li class="list-inline-item">Projects</li>
+                        <li class="list-inline-item"><a href="/blog/">Blog</a></li>
+                    </ul>
 
 
 
@@ -20,6 +25,7 @@
         <div class="content-container">
                 {% block whole %}
                 {% endblock %}
+            </div>
         </div>
     </body>
 </html>
