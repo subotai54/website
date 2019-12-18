@@ -1,12 +1,13 @@
 from django.urls import reverse # Used to generate URLs by reversing the URL patterns
 from django.db import models
+from django.conf import settings
 
 class list(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     created_on = models.DateTimeField(auto_now_add=True)
-
-
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    subtitle=models.CharField(max_length=200, unique=True)
     class Meta:
         ordering = ['-created_on']
 

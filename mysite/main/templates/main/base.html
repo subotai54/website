@@ -17,6 +17,13 @@
                         <li class="list-inline-item"><a href="https://github.com/subotai54">Github</a></li>
                         <li class="list-inline-item">Projects</li>
                         <li class="list-inline-item"><a href="/blog/">Blog</a></li>
+                        {% if user.is_authenticated %}
+                            <li class="list-inline-item">User: {{ user.get_username }}</li>
+                            <a href="{% url 'logout'%}?next={{request.path}}" class="list-inline-item">Logout</a>
+
+                        {% else %}
+                            <li class="list-inline-item"><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+                        {% endif %}
                     </ul>
             </div>
         <div class="content-container">
