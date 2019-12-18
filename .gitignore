@@ -1,3 +1,5 @@
 .cache/pip/http
 .local/bin
 .virtualenvs
+mysite/mysite/settings.py
+*.sqlite3
