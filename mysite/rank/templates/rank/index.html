@@ -1,14 +1,16 @@
-{% extends "rank/base_generic.html" %}
+{% extends "main/base.html" %}
 
-{% block content %}
-  <h1>Local Library Home</h1>
-  <p>Welcome to LocalLibrary, a website developed by <em>Mozilla Developer Network</em>!</p>
-  <h2>Dynamic content</h2>
-  <p>The library has the following record counts:</p>
-  <ul>
-    <li><strong>Books:</strong> {{ num_books }}</li>
-    <li><strong>Copies:</strong> {{ num_instances }}</li>
-    <li><strong>Copies available:</strong> {{ num_instances_available }}</li>
-    <li><strong>Authors:</strong> {{ num_authors }}</li>
-  </ul>
-{% endblock %}
+{% block whole %}
+
+    <div class="col-md-8 mt-3 left">
+        {% for List in list_list %}
+        <div class="card mb-4">
+            <div class="card-body">
+                <h1 class="card-title">{{ List.title }}</h2>
+                <p class="card-text text-muted h6">{{ List.created_on}} </p>
+                <a href="{% url 'list_detail' List.slug  %}" class="btn btn-primary">Access List</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock whole %}
