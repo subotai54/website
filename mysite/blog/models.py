@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 import re
-
+from django.utils import timezone
 
 STATUS = (
     (0,"Draft"),
@@ -14,7 +14,7 @@ class Post(models.Model):
     #author = models.ForeignKey(User, on_delete= models.CASCADE,related_name='blog_posts')
     updated_on = models.DateTimeField(auto_now= True)
     content = models.TextField()
-    created_on = models.DateTimeField(auto_now_add=True)
+    created_on = models.DateTimeField(default=timezone.now)
     status = models.IntegerField(choices=STATUS, default=0)
     tags = models.CharField(max_length=200, default="Subotai54")
 
