@@ -3,19 +3,17 @@ from .models import list
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.conf import settings
 from django.core.exceptions import PermissionDenied
 from django.contrib import messages
 
 
 class ListList(LoginRequiredMixin, generic.ListView):
-    #queryset = list.objects.order_by('-created_on')
     template_name = 'rank/index.html'
     def get_queryset(self):
         return list.objects.filter(author=self.request.user).order_by('-created_on')
 
 @login_required
-def list_detail(request, slug):
+def list_detail(request,author, slug):
     List = get_object_or_404(list, slug=slug)
 
     if List.author == request.user:

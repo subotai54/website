@@ -2,15 +2,24 @@
 
 {% block whole %}
 
-    <div class="col-md-8 mt-3 left">
-        {% for List in list_list %}
-        <div class="card mb-4">
-            <div class="card-body">
-                <h1 class="card-title">{{ List.title }}</h2>
-                <p class="card-text text-muted h6">{{ List.created_on}} </p>
-                <a href="{% url 'list_detail' List.slug  %}" class="btn btn-primary">Access List</a>
+    <div class="col-md-8">
+        {% if object_list %}
+
+            {% for List in object_list %}
+            <div class="card mx-auto">
+                <div class="card-body">
+                    <h1 class="card-title">{{ List.title }}</h2>
+                    <p class="card-text text-muted h6">{{ List.created_on}} </p>
+                    <a href="{% url 'list_detail' List.author List.slug  %}" class="btn btn-primary">Access List</a>
+                </div>
             </div>
-        </div>
-        {% endfor %}
+            {% endfor %}
+        {% else %}
+            <div class="card mx-auto">
+                <div class="card-body">
+                    <h1 class="card-title"> No Lists available</h2>
+
+            </div>
+        {% endif %}
     </div>
 {% endblock whole %}

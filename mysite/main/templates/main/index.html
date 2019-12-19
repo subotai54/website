@@ -5,11 +5,43 @@
 {% load static %}
 <link rel="stylesheet" href="{% static "main/index.css" %}">
 <div class='container'>
-    <div class="row  mx-auto justify-content-center">
-        <h1>Main Page</h1>
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome</h1>
+            <p class="lead">Welcome to my page for documenting and sharing my projects</p>
+            <p>Projects will be posted through Github and this website as appropriate and as they become presentable</p>
+
     </div>
-    <div class="row  mx-auto justify-content-center">
-        <p>Hello! This is the main page for my website that I am building to help learn Django and Python. Projects will be added to the site as they are put into atleast a semi-functional state, and the code is hosted on <a href="https://github.com/subotai54/website" class="inline">github</a>. The about page describes the website further.</p>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Ranked List</h2>
+            <p>
+                Create rank lists about whatever you want! Login required.
+            </p>
+            <p>
+                <a class="btn btn-secondary" href="rank/">Ranked Lists</a>
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h2>About</h2>
+            <p>
+                Learn more about this website
+            </p>
+            <p>
+                <a class="btn btn-secondary" href="about/">About</a>
+            </p>
+
+        </div>
+        <div class="col-md-4">
+            <h2>Blog</h2>
+            <p>
+                Personal blog with mostly thoughts about the Miami Heat
+            </p>
+            <p>
+                <a class="btn btn-secondary" href="blog/">Blog</a>
+            </p>
+
+        </div>
     </div>
 </div>
 </body>
