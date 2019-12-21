@@ -1,13 +1,15 @@
 from django.urls import reverse # Used to generate URLs by reversing the URL patterns
 from django.db import models
 from django.conf import settings
+from django.forms import ModelForm
 
-class list(models.Model):
+class createdRankings(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     created_on = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     subtitle=models.CharField(max_length=200, unique=True)
+
     class Meta:
         ordering = ['-created_on']
 
@@ -16,15 +18,17 @@ class list(models.Model):
 
 
 class film(models.Model):
-    list = models.ForeignKey(list,on_delete=models.CASCADE,related_name='film')
+    parentRanking = models.ForeignKey(createdRankings,on_delete=models.CASCADE,related_name='film')
     name = models.CharField(max_length=80)
     rank = models.IntegerField()
 
     class Meta:
-        ordering = ['list','rank']
+        ordering = ['parentRanking','rank']
         constraints=[
-            models.UniqueConstraint(fields=['list','rank'], name='unique_rank')
+            models.UniqueConstraint(fields=['parentRanking','rank'], name='unique_rank'),
+            models.UniqueConstraint(fields=['parentRanking','name'], name='unique_film')
             ]
 
     def __str__(self):
-        return 'Comment {} by {}'.format(self.name, self.rank)
+        return '{} is in position {}'.format(self.name, self.rank)
+

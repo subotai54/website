@@ -4,6 +4,13 @@
     font-weight: 400;
 }
 
-.navbar.navbar-expand-md.navbar-dark.bg-dark.fixed-top{
-    color:#8c8c8c;
+li.active a {
+    color:white;
+}
+.navbar{
+    color:#e3dede;
+}
+
+.navbar a:hover {
+    color:#e3dede;
 }

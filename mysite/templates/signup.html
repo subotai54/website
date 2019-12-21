@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+from django.contrib.auth import get_user_model
+User = get_user_model()
+
+
+{% block title %}Sign Up{% endblock %}
+
+{% block whole %}
+  <h2>Sign up</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Sign up</button>
+  </form>
+{% endblock %}

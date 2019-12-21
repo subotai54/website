@@ -42,6 +42,7 @@
 
                         {% else %}
                             <li class="list-inline-item"><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+                            <li class="list-inline-item"><a href="{% url 'signup'%}?next={{request.path}}">Sign Up</a></li>
                         {% endif %}
                     </ul>
             </nav>
@@ -53,4 +54,14 @@
             </div>
         </div>
     </body>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            $(function(){
+                $('a').each(function(){
+                    if ($(this).prop('href') == window.location.href) {
+                        $(this).addClass('active'); $(this).parents('li').addClass('active');
+                    }
+                });
+            });
+    </script>
 </html>

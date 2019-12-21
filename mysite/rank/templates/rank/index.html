@@ -1,25 +1,30 @@
 {% extends "main/base.html" %}
 
 {% block whole %}
+<div class="container">
 
-    <div class="col-md-8">
-        {% if object_list %}
+    <div class="row">
+        <div class="col-md-8 card mb-4  mt-3 left  top">
+            {% if object_list %}
 
-            {% for List in object_list %}
-            <div class="card mx-auto">
-                <div class="card-body">
-                    <h1 class="card-title">{{ List.title }}</h2>
-                    <p class="card-text text-muted h6">{{ List.created_on}} </p>
-                    <a href="{% url 'list_detail' List.author List.slug  %}" class="btn btn-primary">Access List</a>
+                {% for List in object_list %}
+                    <div class="card-body">
+                        <h1 class="card-title">{{ List.title }}</h2>
+                        <p class="card-text text-muted h6">{{ List.created_on}} </p>
+                        <p class="card-text text-muted h6">First: {{List.film.first.name}}</p>
+                        <a href="{% url 'list_detail' List.author List.slug  %}" class="btn btn-primary">Access List</a>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="card mx-auto">
+                    <div class="card-body">
+                        <h1 class="card-title"> No Lists available</h2>
+
                 </div>
-            </div>
-            {% endfor %}
-        {% else %}
-            <div class="card mx-auto">
-                <div class="card-body">
-                    <h1 class="card-title"> No Lists available</h2>
-
-            </div>
-        {% endif %}
+            {% endif %}
+        </div>
     </div>
+    <a href="{% url 'rank_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+
+</div>
 {% endblock whole %}

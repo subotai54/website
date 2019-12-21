@@ -1,0 +1,10 @@
+{% extends "main/base.html" %}
+
+{% block whole %}
+    <h2>New post</h2>
+    <form method="POST" class="rank-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+{% endblock %}
