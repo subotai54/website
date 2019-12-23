@@ -1,0 +1,12 @@
+{% block post_sidebar %}
+    {% if perms.blog %}
+
+        <div class="col-md-4 right card">
+                <ul class="mx-auto justify-content-center">
+                    <a href="add/" class="list-group-item list-group-item-action">New Post</a></li>
+                    <a href="edit/" class="list-group-item list-group-item-action">Edit Post</a></li>
+                    <a href="delete/" class="list-group-item list-group-item-action">Delete Post</a></li>
+                </ul>
+        </div>
+    {% endif %}
+{% endblock %}

@@ -15,7 +15,9 @@
         <p class="tgs">{{post.tags}}</p>
       </div>
     </div>
-    {% block sidebar %} {% include 'blog/sidebar.html' %} {% endblock sidebar %}
+    {% block post_sidebar %}
+    {% include "blog/post_sidebar.html" %}
+    {% endblock post_sidebar %}
   </div>
 </div>
         <h2>{{ comments.count }} comments</h2>

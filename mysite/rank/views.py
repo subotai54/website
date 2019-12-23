@@ -11,6 +11,7 @@ from django.template.defaultfilters import slugify
 from django.db import models
 from django.db import IntegrityError
 from django.db.models import Max
+from django.db.models.functions import Coalesce
 
 
 class ListList(LoginRequiredMixin, generic.ListView):
@@ -43,7 +44,11 @@ def list_detail(request,author, slug):
                 newFilm.created_on = timezone.now()
                 newFilm.parentRanking= List
                 highest = films.aggregate(Max('rank'))
-                max_int = int(highest['rank__max'])
+
+                try:
+                    max_int = int(highest['rank__max'])
+                except:
+                    max_int = 0
                 if max_int == newFilm.rank-1:
                     newFilm.save()
                 else:
@@ -57,7 +62,7 @@ def list_detail(request,author, slug):
         else:
             raise PermissionDenied("This list does not belong to you.")
     except IntegrityError as e:
-            return render(request, 'rank/list_detail.html', {'form': form,'List': List,'films': films,"message": "Rank or film already exists"})
+        return render(request, 'rank/list_detail.html', {'form': form,'List': List,'films': films,"message": existingR})
 
 
 def rank_new(request):

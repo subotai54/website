@@ -1,0 +1,18 @@
+
+{% block sidebar %}
+
+
+<div class="col-md-4 right card">
+    {% if perms.blog %}
+    <div class="col-md-4 right card">
+        <ul class="mx-auto justify-content-center">
+            <a href="post/add/" class="list-group-item list-group-item-action">New Post</a></li>
+        </ul>
+    </div>
+{% endif %}
+    <h2 class="card-title text-center">Blog Posts</h2>
+    {% for post in post_list|slice:"0:3" %}
+    <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary card-text"> {{post.title}}</a>
+    {% endfor %}
+</div>
+{% endblock %}
