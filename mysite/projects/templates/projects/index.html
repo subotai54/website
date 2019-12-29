@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+{% block whole %}
+
+<div class="container">
+    <div class="row">
+        <!-- Blog Entries Column -->
+        <div class="col-md-8 mt-3 left">
+            {% for project in project_list %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">{{ project.title }}</h2>
+                    <a href="{% url 'project_detail' project.slug  %}" class="btn btn-primary">Learn More &rarr;</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+<!--        {% block sidebar %}
+        {% include "blog/sidebar.html" %}
+        {% endblock sidebar %} -->
+    </div>
+    {% if is_paginated %}
+          <nav aria-label="Page navigation conatiner"></nav>
+          <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+
+    {% endif %}
+    {% endif %}
+
+  </ul>
+  </nav>
+</div>
+
+
+{% endblock %}
+

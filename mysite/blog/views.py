@@ -3,8 +3,7 @@ from .models import Post
 from .forms import CommentForm
 from django.shortcuts import render, get_object_or_404
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
-from django.urls import reverse_lazy
-from django.urls import reverse
+from django.urls import reverse_lazy, reverse
 
 
 class PostList(generic.ListView):
