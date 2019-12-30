@@ -11,5 +11,6 @@ class ProjectList(generic.ListView):
 
 def project_detail(request, slug):
     template_name = 'projects/project_base.html'
+    slug_url="projects/"+str(slug)+".html"
 
-    return render(request, template_name)
+    return render(request, template_name, {'slug_url': slug_url})

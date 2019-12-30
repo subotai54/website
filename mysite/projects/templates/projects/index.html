@@ -9,7 +9,8 @@
             <div class="card mb-4">
                 <div class="card-body">
                     <h2 class="card-title">{{ project.title }}</h2>
-                    <a href="{% url 'project_detail' project.slug  %}" class="btn btn-primary">Learn More &rarr;</a>
+                    <p class="card-text">{{project.subtitle|slice:":200" }}</p>
+                    <a href="{% url 'project_detail' project.slug  %}" class="btn btn-primary">Continue &rarr;</a>
                 </div>
             </div>
             {% endfor %}

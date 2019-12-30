@@ -11,6 +11,7 @@ STATUS = (
 
 class Project(models.Model):
     title = models.CharField(max_length=200, unique=True)
+    subtitle = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
     created_on = models.DateTimeField(default=timezone.now)
     status = models.IntegerField(choices=STATUS, default=0)

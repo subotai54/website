@@ -1,0 +1,13 @@
+.navbar.static-top{
+  font-family: Helvetica;
+}
+
+
+.navbar.static-top a:link, .navbar.static-top a:visited{
+color:black;
+}
+
+.navbar.static-bottom a:link, .navbar.static-bottom a:visited{
+color:black;
+
+}
