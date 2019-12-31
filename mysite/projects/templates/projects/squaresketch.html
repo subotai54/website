@@ -1,0 +1,35 @@
+{% load static %}
+<link rel="stylesheet" href="{% static "projects/squaresketch.css" %}">
+<div class="container" id="main_square">
+
+
+<script src="{% static 'projects/squaresketch.js' %}"></script>
+</div>
+  <script>
+        $(document).on('click', '#btn', function(){
+            var num = prompt("What dimensions for the square? (Max 8)", "8");
+            var squares = parseInt(num);
+            $('.sketch').remove()
+            $('.sketch-row').remove()
+
+            makeSquares(squares);
+
+
+});
+  </script>
+<script>
+    window.onload = function() {
+        makeSquares(4);
+    };
+</script>
+<script>
+    $(".sketch").hover(function() {
+        $( this ).addClass('red');
+    })
+</script>
+
+<div class="container">
+
+  <button id="btn" class="button">Reset Square</button>
+
+</div>

@@ -1,18 +1,27 @@
 
 {% block sidebar %}
+{% load static %}
 
+<link rel="stylesheet" href="{% static "blog/sidebar.css" %}">
 
-<div class="col-md-4 right card">
+<div class="col-md-4 card right_card">
     {% if perms.blog %}
-    <div class="col-md-4 right card">
+    <div class="col-md-4 card">
         <ul class="mx-auto justify-content-center">
             <a href="post/add/" class="list-group-item list-group-item-action">New Post</a></li>
         </ul>
     </div>
 {% endif %}
     <h2 class="card-title text-center">Blog Posts</h2>
-    {% for post in post_list|slice:"0:3" %}
-    <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary card-text"> {{post.title}}</a>
+    {% for post in post_list %}
+    <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary card-text mt-2"> {{post.title}}</a>
     {% endfor %}
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}" class="page-link border-0"> NEXT &raquo;</a>
+    {% endif %}
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}" class="page-link border-0"> PREVIOUS &laquo;</a>
+    {% endif %}
+
 </div>
 {% endblock %}

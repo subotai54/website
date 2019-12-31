@@ -15,20 +15,20 @@ class PostCreate(CreateView):
     model = Post
     fields = ['title', 'content', 'status']
     def get_success_url(self):
-        return reverse('home')
+        return reverse('blog_home')
 
 class PostUpdate(UpdateView):
     model = Post
     fields = ['title', 'content', 'status', 'created_on','tags']
     def get_success_url(self):
-        return reverse('home')
+        return reverse('blog_home')
 
 
 class PostDelete(DeleteView):
     model = Post
-    successful_url = reverse_lazy('home')
+    successful_url = reverse_lazy('blog_home')
     def get_success_url(self):
-        return reverse('home')
+        return reverse('blog_home')
 
 def post_detail(request, slug):
     template_name = 'blog/post_detail.html'
