@@ -2,6 +2,7 @@
     background-color:red;
 }
 
-.sketch:hover{
-    background-color:blue;
+
+.sketch{
+    background-color: rgb(255,255,255);
 }
