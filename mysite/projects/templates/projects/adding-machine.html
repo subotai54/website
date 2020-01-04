@@ -1,0 +1,127 @@
+{% load static %}
+<link rel="stylesheet" href="{% static "projects/calculator.css" %}">
+<div class="summary">
+    <h2>Adding Machine</h2>
+    <p>
+        This works like an adding machine, which I used at a previous job. They are mostly on their way out except for banking and accounting, but still exist in the wild. <br><br>
+        The biggest difference is that this works in post-fix expression. If you want to do 7-4=3, you hit 7, add, 3, minus. You're basically telling the computer to combine positive 7 and negative 3.<br><br>
+        Use the * key to save into the receipt what your total is. Use CE to clear what you're currently working on. It doesn't clear the receipt of course, that's 'printed.'<br><br>
+        A receipt is printed alongside. The calculator cuts off any number after 10 digits. Hit the buttons to make things happen!
+    </p>
+
+
+</div>
+<div class="row">
+<div class="col-5">
+    <div class="text-right mlr-auto border mb-0 mt-0 w-100" id = 'receipt' value='0'>0</div>
+    <div class="text-center mlr-auto border mb-0 mt-3 w-25" id="print_me">Print Receipt</div>
+</div>
+<div class="col-6">
+
+<div class="row mx-auto mb-5" id="display_container">
+        <div class="text-right mlr-auto border mb-0 mt-0 w-25" id = 'prev' value='0'>0</div>
+        <br>
+        <div class="text-right mlr-auto border mb-0 mt-0 w-50" id = 'display' value='0'>0</div>
+</div>
+
+<div class="container" id="calculator">
+<script src="{% static 'projects/calculator.js' %}"></script>
+
+<script>
+    window.onload = function() {
+        makeCalc();
+    };
+    $(document).on('click', '.digit', function(){
+                var eq = $('#display').text().trim()
+                if (eq=='0'){
+                    eq=''
+                }
+                if ($(this).text()=='.'){
+
+                }
+                $('#display').text(eq+$(this).text())
+
+    });
+    $(document).on('click', '.oper', function(){
+                var eq = $('#display').text().trim()
+                var prev = $('#prev').text().trim()
+                if (eq!=='0'){
+                    if ($(this).text()=='+'){
+                        var ans = (parseFloat(prev)+parseFloat(eq)).toString()
+                        ans = ans.substring(0,10);
+                        $('#prev').text(ans);
+                        $("#receipt").html($("#receipt").html()+"<br/>"+parseFloat(eq)+$(this).text())
+                    }
+                    else if ($(this).text()=='-'){
+                        ans =(parseFloat(prev)-parseFloat(eq)).toString()
+                        ans = ans.substring(0,10);
+                        $('#prev').text(ans)
+                        $("#receipt").html($("#receipt").html()+"<br/>"+parseFloat(eq)+$(this).text())
+                    }
+                    else if ($(this).text()=='X'){
+                        ans =(parseFloat(prev)*parseFloat(eq)).toString()
+                        ans = ans.substring(0,10);
+                        $('#prev').text(ans)
+                        $("#receipt").html($("#receipt").html()+"<br/>"+parseFloat(eq)+$(this).text())
+                    }
+                    else if ($(this).text()=='/'){
+                        if (eq=='0' || eq==''){
+                            alert("Invalid division by 0.")
+                        }
+                        else
+                        {
+                            ans =(parseFloat(prev)/parseFloat(eq)).toString()
+                            ans = ans.substring(0,10);
+                            $('#prev').text(ans)
+                            $("#receipt").html($("#receipt").html()+"<br/>"+parseFloat(eq)+$(this).text())
+                        }
+                    }
+                    else if ($(this).text()=='*'){
+                        $('#display').text('0')
+                        $("#receipt").html($("#receipt").html()+"<br/>"+parseFloat(prev)+$(this).text())
+                    }
+                    else if ($(this).text()=='CE'){
+                        $('#display').text('0')
+                        $('#prev').text('0')
+                    }
+
+                    else if ($(this).text()=='.'){
+                        ans = $('#display').text()
+                        if (ans.match(/./) == null ){
+                            alert("There is already a decimal")
+                        }
+                        else{
+                            $('#display').text("test")
+                        }
+                    }
+
+                }
+                if ($(this).text()=='*'){
+                    $('#display').text('0')
+                    $("#receipt").html($("#receipt").html()+"<br/>"+parseFloat(prev)+$(this).text())
+                }
+                else if ($(this).text()=='CE'){
+                    $('#display').text('0')
+                    $('#prev').text('0')
+                }
+                $('#display').text('0')
+
+    });
+
+    $(document).on('click', '#print_me', function(){
+            var divContents = document.getElementById("receipt").innerHTML;
+            var a = window.open('', '', 'height=500, width=500');
+            a.document.write('<html>');
+            a.document.write('<body> <div align="right">');
+            a.document.write(divContents);
+            a.document.write('</div></body></html>');
+            a.document.close();
+            a.print();
+
+    });
+</script>
+</div>
+
+</div>
+</div>
+
