@@ -1,0 +1,40 @@
+{% load static %}
+<link rel="stylesheet" href="{% static "projects/rps.css" %}">
+<script src="{% static 'projects/rps.js' %}"></script>
+
+<div class="summary text-center mt-2 mb-5">
+    <h2>Rock Paper Scissors</h2>
+    <p>Regular rock paper scissors game. Keeps track of wins/losses in a single visit.</p>
+</div>
+
+
+<div class="row">
+    <div class="col-4 text-right">
+        <ul class="list-inline">
+            <li class="list-inline-item">
+                <h3 class="text-right mlr-auto border mb-0 mt-0">Wins</h3>
+                <h4 class="text-center mlr-auto border mb-0 mt-0" id='win'>0</h4>
+            </li>
+
+            <li class="list-inline-item">
+                <h3 class="text-right mlr-auto border mb-0 mt-0">Losses</h3>
+                <h4 class="text-center mlr-auto border mb-0 mt-0" id='lose'>0</h4>
+            </li>
+            <li class="list-inline-item">
+                <h3 class="text-right mlr-auto border mb-0 mt-0">Ties</h3>
+                <h4 class="text-center mlr-auto border mb-0 mt-0" id='tie'>0</h4>
+            </li>
+        </ul>
+
+    </div>
+    <div class="col-3">
+        <ul>
+            <h3 class="text-center border mb-2 mt-0" id="Rock">Rock</h3>
+            <h3 class="text-center border mb-2 mt-2" id="Paper">Paper</h3>
+            <h3 class="text-center border mb-0 mt-2" id="Scissors">Scissors</h3>
+        </ul>
+    </div>
+    <div class="col-3">
+        <p id="results">Results</p>
+    </div>
+</div>

@@ -1,7 +1,7 @@
 function makeCalc(){
-    var digit = 9
-    var w = 60
-    var h = 60
+    const digit = 9
+    const w = 60
+    const h = 60
     for(var i =1; i<= 3; i++){
         $('#calculator').append($('<ul/>', { id: 'r' + i, 'class' : 'sketch-row list-inline  mx-0 my-0'}))
         $('#'+'r'+i).height(h)
