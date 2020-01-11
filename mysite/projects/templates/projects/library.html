@@ -1,7 +1,25 @@
 {% load static %}
 <script src="{% static 'projects/library.js' %}"></script>
 
+<div class="row">
+    <div class="summary">
+        <h2>Library</h2>
+        <p>
+            This is an mock up for a library app. Users can add or remove books, along with marking them as borrowed.
+        </p>
 
-<div class="summary text-center mt-2 mb-5">
-    <div id="display">Testtest</div>
+    </div>
+
+    <table class='table' id='input_table'>
+        <tr id='input_fields'>
+            <td id='input_submit' class='border'>Submit</td>
+        </tr>
+    </table>
+    <table class='table table-striped table-bordered' id='data_table'>
+        <tr id='headers'>
+        </tr>
+        <tr id='start'>
+        </tr>
+    </table>
+
 </div>
