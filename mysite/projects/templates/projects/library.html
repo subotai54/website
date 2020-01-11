@@ -1,11 +1,16 @@
 {% load static %}
 <script src="{% static 'projects/library.js' %}"></script>
+<link rel="stylesheet" href="{% static "projects/library.css" %}">
 
 <div class="row">
     <div class="summary">
-        <h2>Library</h2>
+        <h2 class='text-center'>Library</h2>
         <p>
             This is an mock up for a library app. Users can add or remove books, along with marking them as borrowed.
+            The same ID can only be used once. All fields have to be filled in.
+            The books are stored as objects in an array and that array is used to show and delete the objects.
+            Two books are pre-filled, the first book of my favorite series Wheel of Time, and a knockoff written by fake 'Broden.'
+            You can click on delete to delete that entry, or click on borrow/not borrowed to toggle it.
         </p>
 
     </div>
