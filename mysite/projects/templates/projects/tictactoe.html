@@ -1,0 +1,47 @@
+{% load static %}
+<script src="{% static 'projects/tictactoe.js' %}"></script>
+<link rel="stylesheet" href="{% static "projects/tictactoe.css" %}">
+
+<div class="row">
+    <div class="summary">
+        <h2 class='text-center'>Tic-Tac-Toe</h2>
+        <p>
+            This is a game of tic-tac-toe. Enter your name and the symbol you want to use for your mark! Defaults to X/O.
+        </p>
+
+    </div>
+</div>
+<div class="row">
+    <h4 class='mr-4'>Active Player:</h4>
+
+    <div id='activePlayer' class='text-right'>
+        test test
+    </div>
+</div>
+<br>
+<div class="row">
+    <br>
+    <p></p>
+    <div class="names">
+        Player 1:<input type="text" id="player1" placeholder="Player 1">
+        Symbol:<input type="text" maxlength='1' placeholder='X' id='sym1'>
+    </div>
+</div>
+<div class="row">
+    <div class="names">
+        Player 2:<input type="text" id="player2" placeholder="Player 2">
+        Symbol:<input type="text" maxlength='1' placeholder='O' id='sym2'>
+    </div>
+    <div class ='col-3 border text-center' id='nameSubmit'>Submit</div>
+</div>
+<br>
+<div class="row">
+    <table id='gameBoard'>
+    </table>
+    <div id='winMessage' class='endMsg'>
+        Victory! Click here to play again.
+    </div>
+    <div id='tieMessage' class='endMsg'>
+        Tie! Click here to play again.
+    </div>
+</div>

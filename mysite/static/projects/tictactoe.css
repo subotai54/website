@@ -1,0 +1,21 @@
+
+table, td {
+  border: 1px solid black;
+}
+
+table {
+    width:100%;
+    table-layout:fixed;
+}
+
+td{
+    height:50px;
+}
+
+#winMessage{
+    display:none;
+}
+
+#tieMessage{
+    display:none;
+}

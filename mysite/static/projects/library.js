@@ -57,7 +57,15 @@ $(document).on('click', '.borrowed', function(){
     else{
         $('#'+toSwitch).text('borrowed')
     }
-
+    for (let d = myLibrary.length - 1; d >= 0; --d) {
+        if (myLibrary[d].borrowed == 'borrowed') {
+            myLibrary[d].borrowed = 'not borrowed'
+        }
+        else
+        {
+            myLibrary[d].borrowed = 'borrowed'
+        }
+    }
 });
 
 
