@@ -1,9 +1,18 @@
 var gameBoard = (function() {
+    var gameType = 2 //1 for single, 2 for two player
     var _board = [0,0,0,0,0,0,0,0,0,0]; //init board
     var _players=[]; // holds player objects
     const _wins = [[1,4,7],[2,5,8],[3,6,9],[1,2,3],[4,5,6],[7,8,9],[1,5,9],[3,5,7]]; //possible win conditions
     var count = 0; //used for determining ties
     var counter = 0; //used for AI
+
+    function setPlayers (oneTwo){
+        gameType = oneTwo;
+    }
+
+    function getPlayers (){
+        return gameType;
+    }
 
     function AI(nBoard = _board.slice(), dec = 0){ //1 is AI, 0 is human
     aBoard=nBoard.slice()
@@ -162,7 +171,9 @@ var gameBoard = (function() {
         checkBlank,
         activePlayer,
         addPlayers,
-        AI
+        AI,
+        setPlayers,
+        getPlayers
     }
 }());
 
@@ -179,9 +190,11 @@ var displayControl = (function() { //takes input from the gameboard and uses it 
         $('#activePlayer').text(act.sayName())
         console.log(act.sayName())
     }
-    function win(){
+
+    function win(winner){
         document.getElementById("gameBoard").style.display = "none";
         document.getElementById("winMessage").style.display = "block";
+        $('#winMessage').text(winner.sayName()+" wins! Click here to play again.")
     }
 
     function tie(){
@@ -216,9 +229,12 @@ $(document).on('click', '.board', function(){ //when click board, gets the spot 
     let matches = toSwitch.match(/(\d+)/);
     gameBoard.clicked(matches[0]);
     displayControl.activePlayer();
-    let pick = gameBoard.AI();
-    gameBoard.clicked(pick);
-    displayControl.activePlayer();
+    if (gameBoard.getType() ==1)
+    {
+        let pick = gameBoard.AI();
+        gameBoard.clicked(pick);
+        displayControl.activePlayer();
+    }
 });
 
 $(document).on('click', '#nameSubmit', function(){ // Takes names and symbols, checks to see if empty, and randomly picks a first player. Sets input to readonly, can't change name after submit.
@@ -230,6 +246,9 @@ $(document).on('click', '#nameSubmit', function(){ // Takes names and symbols, c
 
     let sym1 = document.getElementById('sym1').value
     let sym2 = document.getElementById('sym2').value
+
+    let oneTwo = document.querySelector('input[name="numPl"]:checked').value;
+    gameBoard.setPlayers(oneTwo);
 
     if (sym1 == ''){
         sym1='X'
@@ -250,8 +269,6 @@ $(document).on('click', '#nameSubmit', function(){ // Takes names and symbols, c
         gameBoard.addPlayers(humTwo, humOne)
     }
 
-    $("#player1").prop("readonly",true);
-    $("#player2").prop("readonly",true);
 
     gameBoard.reset()
     console.log(humOne.sayName())
